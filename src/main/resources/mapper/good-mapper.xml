@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.p.Dao.GoodMapper">
     <insert id="insertGood">
-        insert into goods(price,name,inventory)values(#{price},#{name},#{inventory})
+        insert into goods(price,name,inventory,category)values(#{price},#{name},#{inventory},#{category})
     </insert>
     <select id="selectGood" resultType="com.p.Model.Good">
         select*from goods where id=#{id}
@@ -13,6 +13,12 @@
         delete from goods where id=#{id}
     </delete>
     <update id="updateGood">
-        update goods set price = #{price},name =#{name},inventory=#{inventory} where id=#{id}
+        update goods set price = #{price},name =#{name},inventory=#{inventory} ,category=#{category}where id=#{id}
     </update>
+    <select id="selectCount" resultType="int">
+        select count(*)from goods
+    </select>
+    <select id="selectRange" resultType="com.p.Model.Good">
+        select * from goods limit #{a},#{b}
+    </select>
 </mapper>

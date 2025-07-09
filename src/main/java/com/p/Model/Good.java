@@ -5,8 +5,24 @@ public class Good {
     private String name;
     private int inventory;
     private int price;
+    private String category;
     public int getId(){
         return id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    @Override
+    public String toString() {
+        return "Good{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", inventory=" + inventory +
+                ", price=" + price +
+                ", category='" + category + '\'' +
+                '}';
     }
 
     public int getInventory() {
